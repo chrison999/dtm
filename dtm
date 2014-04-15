@@ -3,6 +3,7 @@
 import sys
 import pygtk; pygtk.require('2.0')
 import gtk
+import pango
 import gobject
 import subprocess
 import re
@@ -96,7 +97,8 @@ class DragonsTaleMonitor:
             if not tab == None:
                 t = str(datetime.datetime.now()).split('.')[0]
                 buf = self.tvs[tab].get_buffer()
-                buf.insert_at_cursor("["+t+"] "+arrow)
+                itr = buf.get_end_iter()
+                buf.insert_with_tags_by_name(itr,"["+t+"] "+arrow,"small")
                 
                 if not tab in [ "Messages", "Jackpots" ]:
                     (gendname,msg) = self.parse_chatline(line)
@@ -190,9 +192,10 @@ class DragonsTaleMonitor:
 
             # create some color tags
             tb = self.tvs[k].get_buffer()
-            tag = tb.create_tag("red_fg", foreground="red")
+            tag = tb.create_tag("red_fg", foreground="#red")
             tag = tb.create_tag("blue_fg", foreground="blue")
-            tag = tb.create_tag("green_fg", foreground="green")
+            tag = tb.create_tag("green_fg", foreground="#008000")
+            tag = tb.create_tag("small", scale=pango.SCALE_X_SMALL)
 
             self.tabs[k].add(self.tvs[k])
 
