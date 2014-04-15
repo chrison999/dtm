@@ -98,7 +98,8 @@ class DragonsTaleMonitor:
                 t = str(datetime.datetime.now()).split('.')[0]
                 buf = self.tvs[tab].get_buffer()
                 itr = buf.get_end_iter()
-                buf.insert_with_tags_by_name(itr,"["+t+"] "+arrow,"small")
+                buf.insert_with_tags_by_name(itr,"["+t+"] ","small")
+                buf.insert_at_cursor(arrow)
                 
                 if not tab in [ "Messages", "Jackpots" ]:
                     (gendname,msg) = self.parse_chatline(line)
