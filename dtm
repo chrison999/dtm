@@ -192,7 +192,7 @@ class DragonsTaleMonitor:
 
             # create some color tags
             tb = self.tvs[k].get_buffer()
-            tag = tb.create_tag("red_fg", foreground="#red")
+            tag = tb.create_tag("red_fg", foreground="red")
             tag = tb.create_tag("blue_fg", foreground="blue")
             tag = tb.create_tag("green_fg", foreground="#008000")
             tag = tb.create_tag("small", scale=pango.SCALE_X_SMALL)
