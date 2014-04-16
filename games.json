@@ -2,8 +2,17 @@
     "bench": { 
              "fn":"Bench",
              "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Benches" },
-    "dragonseggnog": { "fn":"Dragon's Eggnog",
+    "monkeycageriver": { 
+             "fn":"Monkey Cage River",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
+    "bamboosmoothie": { "fn":"Bamboo Smoothie",
+                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "cinnamonswizzle": { "fn":"Cinnamon Swizzle",
                       "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
     "coconutcocktail": { "fn":"Coconut Cocktail",
+                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "dragonseggnog": { "fn":"Dragon's Eggnog",
+                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "gooseberryslurpee": { "fn":"Gooseberry Slurpee",
                       "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" }
 }
