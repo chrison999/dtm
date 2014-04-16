@@ -21,4 +21,15 @@ file as an argument to dtm.
 
 For example:
 
-$ ./dtm ~/eClient/elaunch
+    $ ./dtm ~/eClient/elaunch
+
+
+Feedback/Donations
+-------------------
+
+Like this program?  Found it useful?  Talk to me in-game `tspacepilot`.  
+Really like it?  Send me a little btc:
+
+    1HuSTn525oA7QUGdLdv9TPHen4k8sXVGok
+
+Or invite me to a drink at your favorite in-game bar!
