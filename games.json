@@ -1,0 +1,9 @@
+{
+    "bench": { 
+             "fn":"Bench",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Benches" },
+    "dragonseggnog": { "fn":"Dragon's Eggnog",
+                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "coconutcocktail": { "fn":"Coconut Cocktail",
+                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" }
+}
