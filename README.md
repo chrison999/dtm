@@ -21,7 +21,7 @@ file as an argument to dtm.
 
 For example:
 
-    $ ./dtm ~/eClient/elaunch
+    $ ./dtm ~/eClient/egenesis.bug
 
 
 Feedback/Donations
