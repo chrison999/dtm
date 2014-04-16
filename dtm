@@ -10,6 +10,7 @@ import re
 import os
 import signal
 import datetime
+import json
 
 class DragonsTaleMonitor:
     def delete_event(self, widget, event, data=None):
@@ -54,8 +55,10 @@ class DragonsTaleMonitor:
                         msg = msg[game_st+1:] 
                         game_end = msg.find(r'')
                         itr = buf.get_end_iter()
-                        buf.insert_with_tags_by_name(itr, msg[0:game_end],
-                                                     "green_fg")
+                        g_name = msg[0:game_end]
+                        if g_name in self.games.keys():
+                            g_name = self.games[g_name]['fn']
+                        buf.insert_with_tags_by_name(itr, g_name, "green_fg")
                         msg = msg[game_end+1:] 
             else: 
                 buf.insert_at_cursor(msg+"\n") 
@@ -129,18 +132,24 @@ class DragonsTaleMonitor:
                                      preexec_fn=os.setsid)
         gobject.io_add_watch(self.proc.stdout, gobject.IO_IN, self.update)
 
+    def hyperlink_handler(self, tag, tv, event, click_itr):
+        if event.type == gtk.gdk.BUTTON_RELEASE:
+            char_index = click_itr.get_offset()
+            tag_name = tag.get_property("name")
 
     def __init__(self, logfile):
         # make logfile available
         self.lf = logfile
         self.pmn = None
 
-        # find the player's name, don't need this currently
-        #lflines = open(logfile).readlines()
-        #for l in lflines:
-        #  m = re.match("Player Identification: (\S+)", l)
-        #  if m:
-        #    self.playername=m.group(1)
+        # read in the games json file
+        try:
+            game_d = open('games.json')
+            self.games = json.load(game_d)
+        except:
+            sys.stderr.write("Warning:  no games.json db file found, "+\
+                             "some messages may not look so pretty.\n")
+            self.games = {}
 
         # create a new window
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
@@ -196,6 +205,9 @@ class DragonsTaleMonitor:
             tag = tb.create_tag("red_fg", foreground="red")
             tag = tb.create_tag("blue_fg", foreground="blue")
             tag = tb.create_tag("green_fg", foreground="#008000")
+            tag = tb.create_tag("link", foreground="blue", 
+                                        underline=pango.UNDERLINE_SINGLE)
+            tag.connect('event', self.hyperlink_handler)
             tag = tb.create_tag("small", scale=pango.SCALE_X_SMALL)
 
             self.tabs[k].add(self.tvs[k])
