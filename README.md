@@ -23,6 +23,14 @@ For example:
 
     $ ./dtm ~/eClient/egenesis.bug
 
+Note that the file `games.json` is used to pretty-print some info in the 
+system messages and jackpots window.  Future versions will use this to create
+hyperlinks to pages on the wiki 
+(<http://www.dragons.tl/mediawiki-1.16.5/index.php/Main_Page>).  Currently,
+it's expected that this file exists in the same directory that you call dtm
+from.
+
+
 
 Feedback/Donations
 -------------------
