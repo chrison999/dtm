@@ -239,7 +239,7 @@ if __name__ == "__main__":
     if len(sys.argv)!=2:
         print "Please provide the location of egenesis.bug as an argument." 
         print "For example" 
-        print "  $ print_chat.py ~/eClient/egenesis.bug" 
+        print "  $ ./dtm ~/eClient/egenesis.bug" 
         sys.exit(1)
 
     dtm = DragonsTaleMonitor(sys.argv[1])
