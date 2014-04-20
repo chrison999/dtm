@@ -5,14 +5,52 @@
     "monkeycageriver": { 
              "fn":"Monkey Cage River",
              "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
-    "bamboosmoothie": { "fn":"Bamboo Smoothie",
-                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
-    "cinnamonswizzle": { "fn":"Cinnamon Swizzle",
-                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
-    "coconutcocktail": { "fn":"Coconut Cocktail",
-                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
-    "dragonseggnog": { "fn":"Dragon's Eggnog",
-                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
-    "gooseberryslurpee": { "fn":"Gooseberry Slurpee",
-                      "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" }
+    "bamboosmoothie": {
+             "fn":"Bamboo Smoothie",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "cinnamonswizzle": {
+             "fn":"Cinnamon Swizzle",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "coconutcocktail": {
+             "fn":"Coconut Cocktail",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "dragonseggnog": {
+             "fn":"Dragon's Eggnog",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "drink": { 
+             "fn":"Drink",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "wishingwell": {
+             "fn":"Wishing Well",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Wishing_Well" },
+    "feathertree": {
+             "fn":"Feather Tree",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Feather_Tree" },
+    "skyfire": {
+             "fn":"Sky Fire",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Sky_Fire" },
+    "monkeycagetowncenter": {
+             "fn":"Monkey Cage Town Center",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
+    "herbgathering": {
+             "fn":"Herb Gathering",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Herbs" },
+    "cow": {
+             "fn":"Cow Tipping",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cow_Tipping" },
+    "watertango": {
+             "fn":"Tango of Waters",
+             "url":"" },
+    "fence": {
+             "fn":"Fences",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Fences_-_Coin_Balance" },
+    "treefalls": {
+             "fn":"Treefalls",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Treefalls" },
+    "coconutpond": {
+             "fn":"Coconut Pond Fishing",
+             "url":"" },
+    "gooseberryslurpee": {
+             "fn":"Gooseberry Slurpee",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" }
 }

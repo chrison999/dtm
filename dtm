@@ -30,12 +30,20 @@ class DragonsTaleMonitor:
         return gendname, msg[1:]
 
     def color_print_name(self,buf,gendname):
-        itr = buf.get_end_iter()
         (gend,name) = gendname.split(':') 
+        tags = []
         if gend=="F":
-            buf.insert_with_tags_by_name(itr,name,"red_fg")
-        else:
-            buf.insert_with_tags_by_name(itr,name,"blue_fg")
+            tags.append("red_fg")
+        else: tags.append("blue_fg")
+        if name == self.playername:
+          tags.append("playername")
+
+        start_offset = buf.get_end_iter().get_offset()
+        buf.insert_at_cursor(name)
+        for t in tags:
+            start_itr = buf.get_iter_at_offset(start_offset)
+            end_itr = buf.get_end_iter()
+            buf.apply_tag_by_name(t,start_itr,end_itr)
 
     def print_with_colors(self,buf,msg):
         symbs = [ r'', r'' ]
@@ -137,6 +145,17 @@ class DragonsTaleMonitor:
             char_index = click_itr.get_offset()
             tag_name = tag.get_property("name")
 
+    def get_playername(self):
+        '''search the logfile for the playername'''
+        lf = open(self.lf)
+        NAME_RE = re.compile('Player Identification: (.*)$')
+        while True:
+          l = lf.readline()
+          if not l: break
+          m = NAME_RE.match(l) 
+          if m:
+            return m.group(1)
+
     def __init__(self, logfile):
         # make logfile available
         self.lf = logfile
@@ -150,6 +169,12 @@ class DragonsTaleMonitor:
             sys.stderr.write("Warning:  no games.json db file found, "+\
                              "some messages may not look so pretty.\n")
             self.games = {}
+
+        # try to determine the player's own name
+        self.playername = self.get_playername()
+        if not self.playername:
+            sys.stderr.write("Warning: difficulty determining player name.\n")
+
 
         # create a new window
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
@@ -205,6 +230,7 @@ class DragonsTaleMonitor:
             tag = tb.create_tag("red_fg", foreground="red")
             tag = tb.create_tag("blue_fg", foreground="blue")
             tag = tb.create_tag("green_fg", foreground="#008000")
+            tag = tb.create_tag("playername", weight=pango.WEIGHT_BOLD)
             tag = tb.create_tag("link", foreground="blue", 
                                         underline=pango.UNDERLINE_SINGLE)
             tag.connect('event', self.hyperlink_handler)
