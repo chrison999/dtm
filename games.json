@@ -23,15 +23,27 @@
     "wishingwell": {
              "fn":"Wishing Well",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Wishing_Well" },
+    "duckpond": {
+             "fn":"Duck Pond",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Duck_Pond" },
     "feathertree": {
              "fn":"Feather Tree",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Feather_Tree" },
     "skyfire": {
              "fn":"Sky Fire",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Sky_Fire" },
+    "dynastyfire": {
+             "fn":"Sky Fire",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Dynasty_Fire" },
     "monkeycagetowncenter": {
              "fn":"Monkey Cage Town Center",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
+    "monkeycagemini": {
+             "fn":"Monkey Cage Mini",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
+    "christmastree": {
+             "fn":"Christmas Tree",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Christmas_Trees" },
     "herbgathering": {
              "fn":"Herb Gathering",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Herbs" },
@@ -41,6 +53,18 @@
     "watertango": {
              "fn":"Tango of Waters",
              "url":"" },
+    "casasciusstandard": { 
+             "fn":"Casascius Standard",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "spiritofcostarica": { 
+             "fn":"Spirit of Costa Rica",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "elunicorno": { 
+             "fn":"El Unicorno cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "smoking": { 
+             "fn":"Cigar Smoking",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
     "fence": {
              "fn":"Fences",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Fences_-_Coin_Balance" },
@@ -50,6 +74,15 @@
     "coconutpond": {
              "fn":"Coconut Pond Fishing",
              "url":"" },
+    "watermambo": {
+             "fn":"Mambo of Waters",
+             "url":"" },
+    "waterballet": {
+             "fn":"Ballet of Waters",
+             "url":"" },
+    "trashcan": {
+             "fn":"Trash Cans",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Trash_Cans" },
     "gooseberryslurpee": {
              "fn":"Gooseberry Slurpee",
              "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" }

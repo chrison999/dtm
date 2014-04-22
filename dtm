@@ -12,6 +12,7 @@ import signal
 import datetime
 import json
 
+
 class DragonsTaleMonitor:
     def delete_event(self, widget, event, data=None):
         # return FALSE deletes, return TRUE cancels
@@ -156,9 +157,9 @@ class DragonsTaleMonitor:
           if m:
             return m.group(1)
 
-    def __init__(self, logfile):
-        # make logfile available
-        self.lf = logfile
+    def __init__(self, logfile=None):
+
+
         self.pmn = None
 
         # read in the games json file
@@ -169,11 +170,6 @@ class DragonsTaleMonitor:
             sys.stderr.write("Warning:  no games.json db file found, "+\
                              "some messages may not look so pretty.\n")
             self.games = {}
-
-        # try to determine the player's own name
-        self.playername = self.get_playername()
-        if not self.playername:
-            sys.stderr.write("Warning: difficulty determining player name.\n")
 
 
         # create a new window
@@ -252,6 +248,32 @@ class DragonsTaleMonitor:
         self.notebook.show()
         self.window.show()
 
+        # make logfile available
+        if  logfile != None:
+            self.lf = logfile
+        else:
+        # or request it
+            d = gtk.FileChooserDialog(title="Select egenesis.bug file",
+                                      action=gtk.FILE_CHOOSER_ACTION_OPEN,
+                                      parent=self.window,
+                                      buttons=(gtk.STOCK_OPEN,
+                                               gtk.RESPONSE_OK))
+            r = d.run()
+            if not r == gtk.RESPONSE_OK:
+                sys.stderr.write("No egenesis.bug file selected")
+                sys.exit(1)
+            else:
+                self.lf = d.get_filename()
+                d.destroy()
+
+
+
+        # try to determine the player's own name
+        self.playername = self.get_playername()
+        if not self.playername:
+            sys.stderr.write("Warning: difficulty determining player name.\n")
+
+
 
 
     def main(self):
@@ -262,11 +284,8 @@ class DragonsTaleMonitor:
 
 ## If run directly...
 if __name__ == "__main__":
-    if len(sys.argv)!=2:
-        print "Please provide the location of egenesis.bug as an argument." 
-        print "For example" 
-        print "  $ ./dtm ~/eClient/egenesis.bug" 
-        sys.exit(1)
-
-    dtm = DragonsTaleMonitor(sys.argv[1])
+    lf = None 
+    if len(sys.argv)==2:
+        lf = sys.argv[1]
+    dtm = DragonsTaleMonitor(logfile=lf)
     dtm.main()
