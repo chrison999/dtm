@@ -41,17 +41,27 @@ class DragonsTaleMonitor:
 
         start_offset = buf.get_end_iter().get_offset()
         buf.insert_at_cursor(name)
+
         for t in tags:
             start_itr = buf.get_iter_at_offset(start_offset)
             end_itr = buf.get_end_iter()
             buf.apply_tag_by_name(t,start_itr,end_itr)
 
+    def next_name_or_game(self,msg):
+        idxs = {}
+        if msg.find(r'') > -1:
+            idxs["name"] = msg.find(r'') 
+        if msg.find(r'') > -1:
+            idxs["game"] = msg.find(r'')
+        return min(idxs, key=idxs.get)
+
     def print_with_colors(self,buf,msg):
         symbs = [ r'', r'' ]
         while len(msg)>0:
             if any(symb in msg for symb in symbs):
-                name_st = msg.find(r'')
-                if name_st > -1:
+                first = self.next_name_or_game(msg)
+                if first=="name":
+                    name_st = msg.find(r'')
                     buf.insert_at_cursor(msg[0:name_st])
                     msg = msg[name_st+1:] 
                     name_end = msg.find(r'')
@@ -79,7 +89,7 @@ class DragonsTaleMonitor:
         CHAT_RE = re.compile('ChatLog: ')
         PM_RE   = re.compile('ChatLog: PM(<-|->)')
         MSG_RE  = re.compile('ChatLog: Message:(.*)$')
-        JP_RE  = re.compile('ChatLog: Jackpot:(.*)$')
+        JP_RE   = re.compile('ChatLog: Jackpot:(.*)$')
         if condition == gobject.IO_IN:
             # need to reencode as utf-8
             line = fd.readline().decode('iso-8859-1').encode('utf8')
@@ -106,6 +116,7 @@ class DragonsTaleMonitor:
                             msg = m.group(1)
 
 
+            # tab, is which filter it matched, ie which tab to print to
             if not tab == None:
                 t = str(datetime.datetime.now()).split('.')[0]
                 buf = self.tvs[tab].get_buffer()
