@@ -30,6 +30,16 @@ hyperlinks to pages on the wiki
 it's expected that this file exists in the same directory that you call dtm
 from.
 
+There are currently two configuration options:
+  * PM Notify: rings the system bell when you receive a private message
+  * Autoscroll chat: scrolls the chatwindow down as new messages arrive
+
+You can save your preferences for these options in a file called `.dtmrc` 
+placed in your $HOME directory.  For example, to have the program autostart
+with both options activated your `.dtmrc` file would look like this:
+
+    pm_notify=ON
+    autoscroll=ON
 
 
 Feedback/Donations
