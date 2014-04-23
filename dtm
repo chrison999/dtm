@@ -182,9 +182,20 @@ class DragonsTaleMonitor:
 
     def __init__(self, logfile=None):
 
-
-        self.pmn = None
-        self.follow = None 
+        
+        self.config = { 'pm_notify':None,
+                        'autoscroll':None }
+        # see if there's a config file in the userdir
+        try:
+            home = os.getenv("HOME")
+            config_file = open(home+"/.dtmrc")
+            for l in config_file.readlines():
+                (option,value) = l.strip().split('=')
+                if option in self.config.keys():
+                    if value in ["ON","OFF"]:
+                        self.config[option]=value
+        except:
+            pass
 
         # read in the games json file
         try:
@@ -258,14 +269,21 @@ class DragonsTaleMonitor:
 
             self.tabs[k].add(self.tvs[k])
 
+        
 
         # create a config option or two
-        pmn_button = gtk.CheckButton('PM notify')
+
+        pmn_button = gtk.CheckButton('_PM notify')
         pmn_button.connect("toggled", self.set_pmn)
+
+        if self.config['pm_notify'] == 'ON':
+            pmn_button.set_active(True)
         pmn_button.show()
 
-        follow_button = gtk.CheckButton('Auto-scroll window as chats arrive')
+        follow_button = gtk.CheckButton('_Auto-scroll window as chats arrive')
         follow_button.connect("toggled", self.set_follow)
+        if self.config['autoscroll'] == 'ON':
+            follow_button.set_active(True)
         follow_button.show()
 
         box.pack_start(pmn_button,expand=False,padding=2)
