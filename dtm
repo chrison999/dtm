@@ -260,11 +260,11 @@ class DragonsTaleMonitor:
 
 
         # create a config option or two
-        pmn_button = gtk.CheckButton('PM Notify')
+        pmn_button = gtk.CheckButton('PM notify')
         pmn_button.connect("toggled", self.set_pmn)
         pmn_button.show()
 
-        follow_button = gtk.CheckButton('Scroll down to follow chat')
+        follow_button = gtk.CheckButton('Auto-scroll window as chats arrive')
         follow_button.connect("toggled", self.set_follow)
         follow_button.show()
 
