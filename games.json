@@ -47,9 +47,15 @@
     "herbgathering": {
              "fn":"Herb Gathering",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Herbs" },
-    "cow": {
-             "fn":"Cow Tipping",
-             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cow_Tipping" },
+    "dragonsarchway": {
+             "fn":"Dragon's Archway",
+             "url":"" },
+    "mastershrine": {
+             "fn":"Master Shrine",
+             "url":"" },
+    "vegetableplant": {
+             "fn":"Vegetable Farming",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Vegetable_Farming" },
     "watertango": {
              "fn":"Tango of Waters",
              "url":"" },
