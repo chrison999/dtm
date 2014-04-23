@@ -39,8 +39,9 @@ class DragonsTaleMonitor:
         if name == self.playername:
           tags.append("playername")
 
-        start_offset = buf.get_end_iter().get_offset()
-        buf.insert_at_cursor(name)
+        itr = buf.get_end_iter()
+        start_offset = itr.get_offset()
+        buf.insert(itr, name)
 
         for t in tags:
             start_itr = buf.get_iter_at_offset(start_offset)
@@ -62,7 +63,8 @@ class DragonsTaleMonitor:
                 first = self.next_name_or_game(msg)
                 if first=="name":
                     name_st = msg.find(r'')
-                    buf.insert_at_cursor(msg[0:name_st])
+                    itr = buf.get_end_iter()
+                    buf.insert(itr,msg[0:name_st])
                     msg = msg[name_st+1:] 
                     name_end = msg.find(r'')
                     self.color_print_name(buf,msg[0:name_end])
@@ -70,7 +72,8 @@ class DragonsTaleMonitor:
                 else:
                     game_st = msg.find(r'')
                     if game_st > -1:
-                        buf.insert_at_cursor(msg[0:game_st])
+                        itr = buf.get_end_iter()
+                        buf.insert(itr,msg[0:game_st])
                         msg = msg[game_st+1:] 
                         game_end = msg.find(r'')
                         itr = buf.get_end_iter()
@@ -80,7 +83,8 @@ class DragonsTaleMonitor:
                         buf.insert_with_tags_by_name(itr, g_name, "green_fg")
                         msg = msg[game_end+1:] 
             else: 
-                buf.insert_at_cursor(msg+"\n") 
+                itr = buf.get_end_iter()
+                buf.insert(itr,msg+"\n") 
                 msg = ''
         
 
@@ -122,14 +126,17 @@ class DragonsTaleMonitor:
                 buf = self.tvs[tab].get_buffer()
                 itr = buf.get_end_iter()
                 buf.insert_with_tags_by_name(itr,"["+t+"] ","small")
-                buf.insert_at_cursor(arrow)
+                itr = buf.get_end_iter()
+                buf.insert(itr,arrow)
                 
                 if not tab in [ "Messages", "Jackpots" ]:
                     (gendname,msg) = self.parse_chatline(line)
                     self.color_print_name(buf,gendname)
-                    buf.insert_at_cursor(": "+msg)
+                    itr = buf.get_end_iter()
+                    buf.insert(itr,": "+msg)
                 else:
-                    buf.insert_at_cursor(": ")
+                    itr = buf.get_end_iter()
+                    buf.insert(itr,": ")
                     # these guys have names and games in the content
                     self.print_with_colors(buf,msg)
 
