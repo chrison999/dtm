@@ -24,10 +24,10 @@ class DragonsTaleMonitor:
         gtk.main_quit()
 
     def set_pmn(self,widget,data=None): 
-        self.pmn=("OFF","ON")[widget.get_active()]
+        self.config['pm_notify']=("OFF","ON")[widget.get_active()]
 
-    def set_follow(self,widget,data=None): 
-        self.follow=("OFF","ON")[widget.get_active()]
+    def set_autoscroll(self,widget,data=None): 
+        self.config['autoscroll']=("OFF","ON")[widget.get_active()]
 
     def parse_chatline(self, line):
         (gendname,msg) = line.split('')[1:]
@@ -144,9 +144,9 @@ class DragonsTaleMonitor:
                     self.print_with_colors(buf,msg)
 
 
-                if self.follow == "ON":
+                if self.config['autoscroll'] == "ON":
                     self.tvs[tab].scroll_to_mark(buf.get_insert(), 0)
-                if self.pmn == "ON" and arrow == "<-":
+                if self.config['pm_notify'] == "ON" and arrow == "<-":
                     gtk.gdk.beep() 
 
             return True 
@@ -280,14 +280,14 @@ class DragonsTaleMonitor:
             pmn_button.set_active(True)
         pmn_button.show()
 
-        follow_button = gtk.CheckButton('_Auto-scroll window as chats arrive')
-        follow_button.connect("toggled", self.set_follow)
+        as_button = gtk.CheckButton('_Auto-scroll window as chats arrive')
+        as_button.connect("toggled", self.set_autoscroll)
         if self.config['autoscroll'] == 'ON':
-            follow_button.set_active(True)
-        follow_button.show()
+            as_button.set_active(True)
+        as_button.show()
 
         box.pack_start(pmn_button,expand=False,padding=2)
-        box.pack_start(follow_button,expand=False,padding=2)
+        box.pack_start(as_button,expand=False,padding=2)
 
         # display everything 
         #self.tv.show()
