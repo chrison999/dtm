@@ -5,6 +5,9 @@
     "monkeycageriver": { 
              "fn":"Monkey Cage River",
              "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
+    "monkeycageplaza": { 
+             "fn":"Monkey Cage Plaza",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Silly_Monkey" },
     "bamboosmoothie": {
              "fn":"Bamboo Smoothie",
              "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
@@ -20,9 +23,15 @@
     "drink": { 
              "fn":"Drink",
              "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "frostedeggnog": { 
+             "fn":"Frosted Eggnog",
+             "url":"http://www.dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
     "wishingwell": {
              "fn":"Wishing Well",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Wishing_Well" },
+    "wall": {
+             "fn":"Great Wall",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/The_Great_Wall" },
     "duckpond": {
              "fn":"Duck Pond",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Duck_Pond" },
@@ -32,6 +41,9 @@
     "skyfire": {
              "fn":"Sky Fire",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Sky_Fire" },
+    "treefire": {
+             "fn":"Tree Fire",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Tree_Fire" },
     "dynastyfire": {
              "fn":"Sky Fire",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Dynasty_Fire" },
@@ -44,15 +56,63 @@
     "christmastree": {
              "fn":"Christmas Tree",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Christmas_Trees" },
+    "jastaberryplant": {
+             "fn":"Jasta Berry Planting",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Berry_Farming" },
+    "peridotmartini": {
+             "fn":"Peridot Martini",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "imperialpilsner": {
+             "fn":"Imperial Pilsner",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "darkstormy": {
+             "fn":"Dark & Stormy Round",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "cowskick": {
+             "fn":"Cow's Kick Round",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "cowskick": {
+             "fn":"Cow's Kick Round",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
+    "cowskick": {
+             "fn":"Cow's Kick Round",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Drinks" },
     "herbgathering": {
              "fn":"Herb Gathering",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Herbs" },
+    "coconutgame": {
+             "fn":"Coconut Trees",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Coconut_Trees" },
+    "masterballoonpump": {
+             "fn":"Balloon Popping",
+             "url":"" },
     "dragonsarchway": {
              "fn":"Dragon's Archway",
              "url":"" },
+    "lapanymantequilla": {
+             "fn":"La Pan y Mantequilla cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "elborracho": {
+             "fn":"El Borracho cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "eldragonardiente": {
+             "fn":"El Dragon Ardiente cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "lacarpadorada": {
+             "fn":"La Carpa Dorada cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "fuegodecoco": {
+             "fn":"Fuego de Coco cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "lajoyafuego": {
+             "fn":"La Joya Fuego cigar",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
     "mastershrine": {
              "fn":"Master Shrine",
              "url":"" },
+    "cow": {
+             "fn":"Cow Tipping",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cow_Tipping" },
     "vegetableplant": {
              "fn":"Vegetable Farming",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Vegetable_Farming" },
@@ -71,12 +131,18 @@
     "smoking": { 
              "fn":"Cigar Smoking",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
+    "labrujaaliento": { 
+             "fn":"La Bruja Aliento",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Cigar_Smoking" },
     "fence": {
              "fn":"Fences",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Fences_-_Coin_Balance" },
     "treefalls": {
              "fn":"Treefalls",
              "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Treefalls" },
+    "plantfalls": {
+             "fn":"Plantfalls",
+             "url":"http://dragons.tl/mediawiki-1.16.5/index.php/Plantfalls" },
     "coconutpond": {
              "fn":"Coconut Pond Fishing",
              "url":"" },
