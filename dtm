@@ -10,16 +10,20 @@ import re
 import os
 import signal
 import datetime
+import time
 import json
 
 # initialize tksnack sound toolkit
 from Tkinter import *
+import tkMessageBox
+
 root = Tk()
 import tkSnack
 tkSnack.initializeSnack(root)
 
 
 class DragonsTaleMonitor:
+
     def delete_event(self, widget, event, data=None):
         # return FALSE deletes, return TRUE cancels
         return False
@@ -257,7 +261,7 @@ class DragonsTaleMonitor:
         self.show_tabs = True 
         self.show_border = True
 
-        # create tabs for "chat, pms"
+        # create tabs for "chat, pms, messages, jackpots, system"
         tab_names = ["Chat","PMs","Messages","Jackpots", "System" ]
         self.tabs = {} 
         self.tvs  = {}
@@ -295,8 +299,6 @@ class DragonsTaleMonitor:
 
             self.tabs[k].add(self.tvs[k])
 
-        
-
         # create a config option or two
 
         pmn_button = gtk.CheckButton('_PM notify')
@@ -315,6 +317,35 @@ class DragonsTaleMonitor:
         box.pack_start(pmn_button,expand=False,padding=2)
         box.pack_start(as_button,expand=False,padding=2)
 
+####################################
+# This is the start of the code of a timer
+#
+# I have the slider done, but haven't figure out how to get the value and
+# put it in a timer that pops-up when the time is done.
+#
+####################################
+
+        scale = gtk.HScale()
+        scale.adjustment = gtk.Adjustment(0, 0, 30, 1, 10, 0)
+        scale.set_adjustment(scale.adjustment)
+        scale.set_digits(0)
+
+# How the heck do I get the value of the scale???
+# This is the line that should do it, but I don't know how to implement it????
+# I need to define a function called "scale_moved" but how???
+#
+#       scale.connect("value-changed", scale_moved)
+
+        scale.show()
+        box.pack_start(scale,expand=False,padding=2)
+
+# Also, I need a button to actually start the timer, and a label to let
+# the user know what all this crap is about.
+
+####################################
+# End of timer code
+####################################
+                                
         # display everything 
         #self.tv.show()
         #self.sw.show()
