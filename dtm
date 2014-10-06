@@ -12,6 +12,12 @@ import signal
 import datetime
 import json
 
+# initialize tksnack sound toolkit
+from Tkinter import *
+root = Tk()
+import tkSnack
+tkSnack.initializeSnack(root)
+
 
 class DragonsTaleMonitor:
     def delete_event(self, widget, event, data=None):
@@ -96,7 +102,10 @@ class DragonsTaleMonitor:
         CHAT_RE = re.compile('ChatLog: ')
         PM_RE   = re.compile('ChatLog: PM(<-|->)')
         MSG_RE  = re.compile('ChatLog: Message:(.*)$')
+        TRE_RE  = re.compile('ChatLog: Treefalls:(.*)$')
         JP_RE   = re.compile('ChatLog: Jackpot:(.*)$')
+        SYS_RE  = re.compile('ChatLog: System:(.*)$')
+        MJ_RE   = re.compile('ChatLog: Major Jackpots:(.*)$')
         if condition == gobject.IO_IN:
             # need to reencode as utf-8
             line = fd.readline().decode('iso-8859-1').encode('utf8')
@@ -121,7 +130,21 @@ class DragonsTaleMonitor:
                         if m:
                             tab = "Jackpots"
                             msg = m.group(1)
-
+                        else:
+                            m = MJ_RE.match(line)
+                            if m:
+                                tab = "Jackpots"
+                                msg = m.group(1)
+                            else:
+                                m = SYS_RE.match(line)
+                                if m:
+                                    tab = "System"
+                                    msg = m.group(1)
+                                else:
+                                    m = TRE_RE.match(line)
+                                    if m:
+                                        tab = "Messages"
+                                        msg = m.group(1)
 
             # tab, is which filter it matched, ie which tab to print to
             if not tab == None:
@@ -132,7 +155,7 @@ class DragonsTaleMonitor:
                 itr = buf.get_end_iter()
                 buf.insert(itr,arrow)
                 
-                if not tab in [ "Messages", "Jackpots" ]:
+                if not tab in [ "Messages", "Jackpots", "System" ]:
                     (gendname,msg) = self.parse_chatline(line)
                     self.color_print_name(buf,gendname)
                     itr = buf.get_end_iter()
@@ -147,7 +170,10 @@ class DragonsTaleMonitor:
                 if self.config['autoscroll'] == "ON":
                     self.tvs[tab].scroll_to_mark(buf.get_insert(), 0)
                 if self.config['pm_notify'] == "ON" and arrow == "<-":
+                    # commented out and replaced with tksnack function
                     gtk.gdk.beep() 
+                    #pmbeep = tkSnack.Sound(load='./Glass.wav')
+                    #pmbeep.play()
 
             return True 
 
@@ -209,11 +235,11 @@ class DragonsTaleMonitor:
 
         # create a new window
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-        self.window.set_default_size(480,640)
+        self.window.set_default_size(400,768)
 
         
         # window title
-        self.window.set_title("Dragon's Tale Monitor")        
+        self.window.set_title("Dragon's Tale Monitor v2 Beta")        
 
         # connect window manager event to signal handlers
         self.window.connect("delete_event", self.delete_event)
@@ -232,7 +258,7 @@ class DragonsTaleMonitor:
         self.show_border = True
 
         # create tabs for "chat, pms"
-        tab_names = ["Chat","PMs","Messages","Jackpots" ]
+        tab_names = ["Chat","PMs","Messages","Jackpots", "System" ]
         self.tabs = {} 
         self.tvs  = {}
         for k in tab_names:
